@@ -1,10 +1,10 @@
 /*
 Actualizar Producto:
-Descripción: El procedimiento tiene que actualizar las características del producto según su ID.
+Descripciï¿½n: El procedimiento tiene que actualizar las caracterï¿½sticas del producto segï¿½n su ID.
 EXEC sp_ActualizarProducto 15, 'CHICKEN', 10, 250, 50,1,3, 20, 2 
 */
 
-ALTER PROCEDURE sp_ActualizarProducto
+CREATE PROCEDURE sp_ActualizarProducto
 	@iId_Prod INT,
     @vNom_Prod VARCHAR(30),
     @dPrecio_Prod DECIMAL(6,2),

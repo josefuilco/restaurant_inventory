@@ -39,7 +39,7 @@ VALUES
 ('Especias', 1),  -- Gramos
 ('Salsas', 4),    -- Mililitros
 ('Lácteos', 5),   -- Unidades
-('Granos', 2),    -- Kilogramos
+('Granos', 2);    -- Kilogramos
 
 INSERT INTO INVENTARIO.OPERACION (vTipo_Ope, bActivo)
 VALUES
