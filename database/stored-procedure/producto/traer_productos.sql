@@ -7,7 +7,16 @@ CREATE PROCEDURE sp_TraerProductos
 AS
 BEGIN
     -- Seleccionar la lista de productos
-    SELECT iId_Prod, vNom_Prod, dPrecio_Prod, iStock_Prod, iStockMin_Prod, iId_Prov, tId_CatProd, bActivo_Prod
-    FROM INVENTARIO.PRODUCTO
-    WHERE bActivo_Prod = 1; -- Solo productos activos
+    SELECT
+        prod.iId_Prod,
+        prod.vNom_Prod,
+        prod.dPrecio_Prod,
+        prod.iStock_Prod,
+        prod.iStockMin_Prod,
+        prod.iId_Prov,
+		prov.vNom_Prov,
+        prod.tId_CatProd
+    FROM INVENTARIO.PRODUCTO prod
+    INNER JOIN INVENTARIO.PROVEEDOR prov ON prod.iId_Prov = prov.iId_Prov
+    WHERE prod.bActivo_Prod = 1; -- Solo productos activos
 END;
