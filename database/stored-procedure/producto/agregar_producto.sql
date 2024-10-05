@@ -1,6 +1,6 @@
 /*
 Agregar Producto
-Descripción: El procedimiento debe de insertar un producto a la tabla productos.
+Descripciï¿½n: El procedimiento debe de insertar un producto a la tabla productos.
 
 EXEC sp_AgregarProducto 'POLLO', 15.75, 200, 20, 2, 3, 10, 1
 */
@@ -12,7 +12,6 @@ CREATE PROCEDURE sp_AgregarProducto
 	@iStockMin_Prod INT,
 	@iId_Prov INT,
 	@tId_CatProd TINYINT,
-	@CantidadActualizada INT,
 	@IdUser INT
 AS
 BEGIN
@@ -42,7 +41,7 @@ BEGIN
 	vDetalle, 
 	tId_User)
     VALUES (
-	@CantidadActualizada, 
+	@iStock_Prod, 
 	0,
 	GETDATE(), 
 	(SELECT TOP 1 iId_Prod FROM INVENTARIO.PRODUCTO ORDER BY 1 DESC), 
