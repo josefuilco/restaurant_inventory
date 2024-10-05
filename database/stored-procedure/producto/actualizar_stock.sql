@@ -10,6 +10,10 @@ CREATE PROCEDURE sp_ActualizarStock
 	@IdUser INT
 AS
 BEGIN
+	UPDATE INVENTARIO.PRODUCTO
+	SET iStock_Prod = @CantidadActualizada
+	WHERE iId_Prod = @iId_Prod;
+
 	INSERT INTO INVENTARIO.HISTORIALPRODUCTO
 	(iCantActual_HistProd, 
 	iCantPre_HistProd,
@@ -26,5 +30,4 @@ BEGIN
 	3, 
 	'Producto Actualizado - Stock', 
 	@IdUser);
-
 END;
