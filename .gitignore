@@ -1,0 +1,9 @@
+.vscode
+
+# Server Files Ignored
+server/**/bin
+server/**/obj
+
+# Client Files Ignored
+client/node_modules
+client/.env
