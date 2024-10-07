@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+/* Initial Configuration */
+:root {
+  font-family: "Open Sans", system-ui;
+  --bg-color: #fafafa;
+  --text-color: #1a1a1a;
+  --ancor-color: #646464;
+}
+
+/* Palette color */
+:root {
+  /* Regular */
+  --first-color: #4d869c;
+  --second-color: #7ab2b2;
+  --third-color: #eef7ff;
+  --fourth-color: #cde8e5;
+  --fifth-color: #e5e1da;
+  --sixth-color: #d7e3e9;
+  --seventh-color: #c3d6de;
+  --auxiliar-color: #f1fbf7;
+  --logout-color: rgb(192, 27, 27);
+  /* Bold */
+  --bold-first-color: #335968;
+  /* Light */
+  /* Complementary */
+}
+
+/* Radius */
+:root {
+  --border-radius: 4px;
+}

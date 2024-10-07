@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +14,51 @@ const router = createRouter({
       path: '/sign-in',
       name: 'sign-in',
       component: () => import('@/module/auth/presentation/view/SignInView.vue')
+    },
+    {
+      path: '/restaurant',
+      name: 'restaurant-app',
+      component: () => import('@/module/common/presentation/view/BaseView.vue'),
+      redirect: {
+        name: 'dashboard'
+      },
+      children: [
+        {
+          path: 'accounts',
+          name: 'accounts',
+          component: () => import('@/module/auth/presentation/view/AccountView.vue')
+        },
+        {
+          path: 'configuration',
+          name: 'configuration',
+          component: () => import('@/module/auth/presentation/view/ConfigurationView.vue')
+        },
+        {
+          path: 'product',
+          name: 'product',
+          component: () => import('@/module/inventory/presentation/view/ProductView.vue')
+        },
+        {
+          path: 'provider',
+          name: 'provider',
+          component: () => import('@/module/inventory/presentation/view/ProviderView.vue')
+        },
+        {
+          path: 'food',
+          name: 'food',
+          component: () => import('@/module/food/presentation/view/FoodView.vue')
+        },
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: () => import('@/module/dashboard/presentation/view/DashboardView.vue')
+        },
+        {
+          path: 'report',
+          name: 'report',
+          component: () => import('@/module/report/presentation/view/ReportView.vue')
+        }
+      ]
     }
   ]
 })
