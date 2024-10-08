@@ -1,20 +1,11 @@
 <script setup lang="ts">
 import AsideFilter from '@/module/common/presentation/components/filter/AsideFilter.vue';
-import DataTable from '@/module/common/presentation/components/table/DataTable.vue';
+import AccountTable from '../components/account-table/AccountTable.vue';
 import { ref } from 'vue';
 
 const roleFilter = ref(0);
-const Filters = ['Todos los usuarios', 'Administrador', 'Empleado'];
 
-const columns = ['Nombre de Cuenta', 'Correo', 'Fecha de Creación', 'Role'];
-const rows = [
-	{
-		name: 'jose',
-		email: 'jfuilco@gmail.com',
-		date: 'Oct 24',
-		role: 'Administrador'
-	}
-]
+const Filters = ['Todos los usuarios', 'Administrador', 'Empleado'];
 
 function getFilter(id: number) {
 	roleFilter.value = id;
@@ -22,24 +13,28 @@ function getFilter(id: number) {
 </script>
 
 <template>
-	<AsideFilter
-		name-filter="Tipo de Cuenta"
-		:value-filter="Filters"
-		@click="getFilter"
-	/>
-	<section id="table-view">
-		<DataTable :columns="columns" :rows="rows"/>
-	</section>
+	<main id="account-view">
+		<AsideFilter
+			name-filter="Tipo de Cuenta"
+			:value-filter="Filters"
+			@click="getFilter"
+		/>
+		<section id="accounts-view">
+			<AccountTable :role-filter="roleFilter"/>
+		</section>
+	</main>
 </template>
 
 <style lang="css">
-#system-view {
+#account-view {
 	display: grid;
 	grid-template-columns: 25% 75%;
 }
 
 #accounts-view {
+	display: flex;
 	grid-column: 2;
-
+	align-items: center;
+	justify-content: center;
 }
 </style>

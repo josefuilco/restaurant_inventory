@@ -1,13 +1,14 @@
 <script setup lang="ts">
 interface Props {
 	type: "reset" | "submit" | "button";
+	isDisable?: boolean;
 	onClick?(event: Event): void;
 }
 defineProps<Props>();
 </script>
 
 <template>
-	<button :type="type" @click="onClick">
+	<button :type="type" @click="onClick" :disabled="isDisable">
 		<slot/>
 	</button>
 </template>

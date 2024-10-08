@@ -27,9 +27,7 @@ defineProps<Props>();
 }
 
 label {
-	left: 0.5rem;
-	top: 0.3rem;
-	color: var(--label-color);
+	color: var(--text-color);
 	transition: 0.5s;
 	user-select: none;
 }
@@ -45,8 +43,6 @@ input {
 
 input:focus + label,
 input:valid + label {
-	top: -1.8rem;
-	left: 0;
 	font-weight: 700;
 }
 

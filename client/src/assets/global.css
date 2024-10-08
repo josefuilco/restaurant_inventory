@@ -19,9 +19,10 @@
   --sixth-color: #d7e3e9;
   --seventh-color: #c3d6de;
   --auxiliar-color: #f1fbf7;
-  --logout-color: rgb(192, 27, 27);
+  --red-color: rgb(232, 30, 30);
   /* Bold */
   --bold-first-color: #335968;
+  --bold-red-color: rgb(178, 25, 25);
   /* Light */
   /* Complementary */
 }

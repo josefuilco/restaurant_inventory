@@ -110,8 +110,8 @@ nav > a:hover {
 
 nav > a:last-child:hover {
 	background-color: var(--bg-color);
-	color: var(--logout-color);
+	color: var(--red-color);
 	font-weight: 600;
-	border-left: 3px solid var(--logout-color);
+	border-left: 3px solid var(--red-color);
 }
 </style>

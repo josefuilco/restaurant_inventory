@@ -38,7 +38,7 @@ export class DataProvider {
 	}
 
 	public async put(route: string, body?: object): Promise<any> {
-		const response = await fetch(this.path(route), this.config('POST', body));
+		const response = await fetch(this.path(route), this.config('PUT', body));
 		return await response.json();
 	}
 

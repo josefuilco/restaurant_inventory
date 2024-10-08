@@ -10,4 +10,10 @@ export const PiniaUserStoreService: IUserStoreService = {
 	getCurrentUserRole() {
 		return userStore.getInfo.role;
 	},
+	saveAccounts(accounts) {
+		userStore.setAccounts(accounts);
+	},
+	getAccounts() {
+		return userStore.getAccounts
+	},
 }

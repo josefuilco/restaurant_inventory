@@ -22,9 +22,7 @@ setAccount();
 
 <template>
 	<NavBar :is-admin="isAdmin"/>
-	<main id="system-view">
-		<RouterView />
-	</main>
+	<RouterView />
 </template>
 
 <style lang="css">
@@ -32,7 +30,7 @@ setAccount();
 	display: grid;
 	grid-template-columns: 20% 80%;
 }
-#system-view {
+main {
 	height: 100dvh;
 	grid-column: 2;
 	background-color: var(--bg-color);
