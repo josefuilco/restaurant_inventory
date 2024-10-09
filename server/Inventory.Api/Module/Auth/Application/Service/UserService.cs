@@ -34,7 +34,6 @@ namespace Inventory.Api.Module.Auth.Application.Service
 				user.Name.EnsureUsernameHaveSpaces(),
 				user.Email.Value,
 				user.CreationDate,
-				user.IsActive,
 				user.Role
 			);
 		}
@@ -48,7 +47,6 @@ namespace Inventory.Api.Module.Auth.Application.Service
 				user.Name.EnsureUsernameHaveSpaces(),
 				user.Email.Value,
 				user.CreationDate,
-				user.IsActive,
 				user.Role
 			);
 		}

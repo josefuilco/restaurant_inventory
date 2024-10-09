@@ -7,7 +7,6 @@ namespace Inventory.Api.Module.Auth.Application.Dto
 		string Name,
 		string Email,
 		DateTime CreationDate,
-		bool IsActive,
 		UserRole Role
 	);
 }
