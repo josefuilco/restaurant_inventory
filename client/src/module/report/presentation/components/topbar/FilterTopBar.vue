@@ -6,18 +6,46 @@ import { extractForm } from '@/lib/extract-form/extractForm';
 import { GetReports } from '@/module/report/application/use-case/GetReports';
 import { PiniaReportStoreService } from '@/module/report/infrastructure/service/PiniaReportStoreService';
 import { ApiReportRepository } from '@/module/report/infrastructure/repository/ApiReportRepository';
+import { ref, watch } from 'vue';
+import { useProductStore } from '@/module/inventory/infrastructure/store/ProductStore';
+import { GetProducts } from '@/module/inventory/application/use-case/GetProducts';
+import { PiniaProductStoreService } from '@/module/inventory/infrastructure/service/PiniaProductStoreService';
+import { ApiProductRepository } from '@/module/inventory/infrastructure/repository/ApiProductRepository';
+import { WebNotificationService } from '@/module/inventory/infrastructure/service/WebNotificationService';
 
-
-const products: Select[] = [
+const productStore = useProductStore();
+const productsSelected = ref<Select[]>([
 	{
 		id: 0,
-		value: 'Todos'
-	},
-	{
-		id: 1,
-		value: 'Leche'
+		value: "Todos"
 	}
-]
+]);
+
+watch(
+	() => productStore.getProducts,
+	async (products) => {
+		if (!products) {
+			await GetProducts(PiniaProductStoreService, ApiProductRepository, WebNotificationService);
+			return;
+		}
+		productsSelected.value = [
+			{
+				id: 0,
+				value: 'Todos'
+			}
+		];
+		products.forEach(product => {
+			console.log(product);
+			productsSelected.value.push(
+				{
+					id: product.id,
+					value: product.name
+				}
+			);
+		});
+	},
+	{ immediate: true }
+);
 
 async function handleSubmit(event: Event) {
 	event.preventDefault();
@@ -36,7 +64,7 @@ async function handleSubmit(event: Event) {
 	<form class="filter-top-bar" @submit="handleSubmit">
 		<OptionField
 			name="producto"
-			:values="products"
+			:values="productsSelected"
 		>
 			Producto:
 		</OptionField>

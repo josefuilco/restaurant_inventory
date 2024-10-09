@@ -14,13 +14,20 @@ const props = defineProps<Props>();
 async function handleSubmit(event: Event) {
 	event.preventDefault();
 	const form = extractForm(event);
-	await ChangePasswordAccount(
-		props.userId,
-		String(form["old-password"]),
-		String(form["new-password"]),
-		ApiUserRepository
-	);
-	(event.target as HTMLFormElement).reset();
+	try {
+		const changed =  await ChangePasswordAccount(
+			props.userId,
+			String(form["old-password"]),
+			String(form["new-password"]),
+			ApiUserRepository
+		);
+		if (changed) {
+			globalThis.localStorage.removeItem('token');
+			globalThis.location.href = '/';
+		}
+	} catch {
+		console.error('Contraseña actual incorrecta.');
+	}
 }
 </script>
 

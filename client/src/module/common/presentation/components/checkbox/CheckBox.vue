@@ -1,22 +1,30 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface Props {
 	id: string;
 	name: string;
+	isCheckbox?: boolean;
 	onCheck?(event: Event): void; 
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const type = computed(() => {
+	return props.isCheckbox ? "checkbox" : "radio";
+})
 </script>
 
 <template>
 	<div>
-		<input type="radio" :name="name" :id="id" @change="onCheck">
+		<input :type="type" :name="name" :id="id" @change="onCheck">
 		<label :for="id"><slot/></label>
 	</div>
 </template>
 
 <style scoped>
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
 	position: absolute;
 	opacity: 0;
 	cursor: pointer;

@@ -28,7 +28,8 @@ watch(
 	(reports) => {
 		if (!reports) return;
 		rows.value = cloneObject(reports);
-	}
+	},
+	{ immediate: true }
 )
 
 async function setupTable() {

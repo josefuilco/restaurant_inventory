@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import AsideFilter from '@/module/common/presentation/components/filter/AsideFilter.vue';
-import AccountTable from '../components/account-table/AccountTable.vue';
-import { ref } from 'vue';
+import { defineAsyncComponent, ref } from 'vue';
+
+const AccountTable = defineAsyncComponent(() => import('../components/account-table/AccountTable.vue'));
 
 const roleFilter = ref(0);
-
 const Filters = ['Todos los usuarios', 'Administrador', 'Empleado'];
 
 function getFilter(id: number) {
@@ -20,7 +20,12 @@ function getFilter(id: number) {
 			@click="getFilter"
 		/>
 		<section id="accounts-view">
-			<AccountTable :role-filter="roleFilter"/>
+			<Suspense>
+				<AccountTable :role-filter="roleFilter"/>
+				<template #fallback>
+					Loading ...
+				</template>
+			</Suspense>
 		</section>
 	</main>
 </template>

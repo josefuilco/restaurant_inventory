@@ -33,7 +33,6 @@ function handleCloseSession() {
 			<h1>Inventario Galindo</h1>
 		</div>
 		<nav :datatype="currentRoute">
-			<RouterLink :to="{name: 'dashboard'}">Dashboard</RouterLink>
 			<RouterLink :to="{name: 'food'}">Comidas</RouterLink>
 			<RouterLink :to="{name: 'provider'}">Proveedores</RouterLink>
 			<RouterLink :to="{name: 'product'}">Productos</RouterLink>
@@ -82,7 +81,6 @@ nav {
 	}
 }
 
-nav[datatype="dashboard"] > a:first-child,
 nav[datatype="configuration"] > a:nth-last-child(2) {
 	background-color: var(--bg-color);
 	color: var(--first-color);
@@ -90,11 +88,11 @@ nav[datatype="configuration"] > a:nth-last-child(2) {
 	border-left: 3px solid var(--first-color);
 }
 
-nav[datatype="food"] > a:nth-child(2),
-nav[datatype="provider"] > a:nth-child(3),
-nav[datatype="product"] > a:nth-child(4),
-nav[datatype="accounts"] > a:nth-child(5),
-nav[datatype="report"] > a:nth-child(6) {
+nav[datatype="food"] > a:first-child,
+nav[datatype="provider"] > a:nth-child(2),
+nav[datatype="product"] > a:nth-child(3),
+nav[datatype="accounts"] > a:nth-child(4),
+nav[datatype="report"] > a:nth-child(5) {
 	background-color: var(--sixth-color);
 	color: var(--first-color);
 	font-weight: 600;

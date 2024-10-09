@@ -20,7 +20,7 @@ const router = createRouter({
       name: 'restaurant-app',
       component: () => import('@/module/common/presentation/view/BaseView.vue'),
       redirect: {
-        name: 'dashboard'
+        name: 'product'
       },
       children: [
         {
@@ -47,11 +47,6 @@ const router = createRouter({
           path: 'food',
           name: 'food',
           component: () => import('@/module/food/presentation/view/FoodView.vue')
-        },
-        {
-          path: 'dashboard',
-          name: 'dashboard',
-          component: () => import('@/module/dashboard/presentation/view/DashboardView.vue')
         },
         {
           path: 'report',

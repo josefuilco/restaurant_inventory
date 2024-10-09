@@ -12,7 +12,6 @@ defineProps<Props>()
 
 <template>
 	<section v-if="isActive" class="security-modal">
-		<h1>¿Estas seguro?</h1>
 		<div class="security-modal__container">
 			<h1>¿Estas seguro?</h1>
 			<div class="security-modal__buttons">

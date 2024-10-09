@@ -4,6 +4,6 @@ import type { User } from "../model/User";
 export interface IUserRepository {
 	getAccounts(): Promise<UserInfo[]>;
 	addAccount(user: User): Promise<void>;
-	changePasswordAccount(id: number, oldPassword: string, newPassword: string): Promise<void>;
+	changePasswordAccount(id: number, oldPassword: string, newPassword: string): Promise<boolean>;
 	removeAccount(id: number): Promise<void>;
 }

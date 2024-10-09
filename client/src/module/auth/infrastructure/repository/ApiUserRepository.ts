@@ -35,10 +35,11 @@ export const ApiUserRepository: IUserRepository = {
 		console.info(message);
 	},
 	async changePasswordAccount(id, oldPassword, newPassword) {
-		const { message } = await dataProvider.put(`User/change-password/${id}`, {
+		const { message, data } = await dataProvider.put(`User/change-password/${id}`, {
 			"current_password": oldPassword,
 			"new_password": newPassword
 		});
 		console.info(message);
+		return data;
 	},
 }

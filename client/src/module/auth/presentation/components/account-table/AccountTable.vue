@@ -53,7 +53,7 @@ async function setupAccounts() {
 function handleCheck(obj: object) {
 	userSelected.value = (obj as UserInfo)["id"];
 }
-setupAccounts();
+await setupAccounts();
 </script>
 
 <template>
